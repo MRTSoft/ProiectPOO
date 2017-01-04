@@ -15,6 +15,12 @@ Game data:
 				- Player (NO AI)
 				- NPC-s  (   AI)
 
+
+	Action
+		- Move
+		- Attack
+		- Loot **Player only
+
 Game mechanics:
   I. Game states
 	1. Not started
