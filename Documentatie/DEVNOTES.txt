@@ -1,0 +1,47 @@
+Idea:
+
+Dungeons and Dragons game:
+
+Game data: 
+	Matrix map with values representing terrain + loot + monsters(spawn blocks)
+	Game object with a singleton PLAYER obj and singleton MAP obj
+	Class Hierachy:
+		Entity
+			- Static  (NO Action)
+				- Walls (Can   pass over)
+				- Save spots
+				- Loot  (Can't pass over)
+			- Dynamic (   Action)
+				- Player (NO AI)
+				- NPC-s  (   AI)
+
+Game mechanics:
+  I. Game states
+	1. Not started
+	2. In Game
+	3. Paused
+	4. Game Over
+
+ II. Movement
+	1. Player
+	2. NPC-s
+
+III. Fighting
+	1. Just meele attack (meele range 1 block)
+	2. Respawn?
+	3. Level up maybe?
+
+IV. Looting (begin with just XP)
+	1. Chests (no respawn)
+	2. Monsters  (respawn)
+
+Time: steps taken in game
+HUD: HP, XP, AD, AR, MAP
+
+Win: exit the map
+Loss: Loose XP on death but no level down?
+
+IMPORTANT STUFF:
+	- Keep it SIMPLE
+	- Make things EASY TO CHANGE!!!
+	- Make it work first
