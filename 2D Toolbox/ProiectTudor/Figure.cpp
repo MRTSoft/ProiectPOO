@@ -17,3 +17,11 @@ double Point::distanceTo(const Point & p)
 {
 	return sqrt((x - p.x)*(x - p.x) + (y - p.y)*(y - p.y));
 }
+
+tinyxml2::XMLNode * Point::serialize(tinyxml2::XMLDocument xmlDoc)
+{
+	tinyxml2::XMLElement * xmlPoint = xmlDoc.NewElement("Point");
+	xmlPoint->SetAttribute("x", this->x);
+	xmlPoint->SetAttribute("y", this->y);
+	return xmlPoint;
+}
