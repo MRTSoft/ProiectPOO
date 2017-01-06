@@ -10,6 +10,11 @@ double triangleArea(Point a, Point b, Point c)
 	return (sqrt(p*(p - ab)*(p - ac)*(p - bc)));
 }
 
+ConvexPolygon::ConvexPolygon(List<Point> lst, unsigned lst_count) : PointSet(lst, lst_count)
+{
+
+}
+
 double ConvexPolygon::area()
 {
 	double r_area = 0.0;
