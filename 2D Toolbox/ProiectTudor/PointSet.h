@@ -11,6 +11,7 @@ public:
 					PointSet();
 					PointSet(const List<Point> &lst, const unsigned lst_count);
 	virtual			~PointSet();
+	virtual tinyxml2::XMLNode *	serialize(tinyxml2::XMLDocument & xmlDoc);
 
 	double area();//Area of a point is 0; Area of a finite set of points is also 0
 	double perimeter();// The perimeter of a set of points is 0

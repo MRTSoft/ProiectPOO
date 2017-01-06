@@ -52,6 +52,26 @@ PointSet::~PointSet()
 	//Nothing to do here
 }
 
+tinyxml2::XMLNode * PointSet::serialize(tinyxml2::XMLDocument & xmlDoc)
+{
+	tinyxml2::XMLElement * xmlPts = xmlDoc.NewElement("PointSet");
+	xmlPts->SetAttribute("count", m_nr);
+	List<Point>::listElem * p = m_points.getHead();
+	if (p != nullptr)
+	{
+		tinyxml2::XMLNode * xmlPt = p->data.serialize(xmlDoc);
+		tinyxml2::XMLNode * xmlCurrent = xmlPts->InsertFirstChild(xmlPt);
+		p = p->next;
+		while (p != nullptr)
+		{
+			tinyxml2::XMLNode * xmlPt = p->data.serialize(xmlDoc);
+			tinyxml2::XMLNode * xmlCurrent = xmlPts->InsertAfterChild(xmlCurrent, xmlPt);
+			p = p->next;
+		}
+	}
+	return xmlPts;
+}
+
 
 
 

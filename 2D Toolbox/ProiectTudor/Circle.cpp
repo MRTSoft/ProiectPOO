@@ -27,3 +27,11 @@ ConvexPolygon Circle::rasterize(unsigned p_resolution)
 	
 	return ConvexPolygon(points, p_resolution);
 }
+
+tinyxml2::XMLNode * Circle::serialize(tinyxml2::XMLDocument & xmlDoc)
+{
+	tinyxml2::XMLElement * xmlCircle = xmlDoc.NewElement("Circle");
+	xmlCircle->SetAttribute("radius", m_radius);
+	xmlCircle->InsertFirstChild(IdealFigure::serialize(xmlDoc));
+	return xmlCircle;
+}

@@ -28,4 +28,20 @@ ConvexPolygon Ellipse::rasterize(unsigned p_resolution)
 	return ConvexPolygon(points, p_resolution);
 }
 
+tinyxml2::XMLNode * IdealFigure::serialize(tinyxml2::XMLDocument & xmlDoc)
+{
+	tinyxml2::XMLElement * xmlOrigin = xmlDoc.NewElement("Origin");
+	xmlOrigin->InsertFirstChild(m_origin.serialize(xmlDoc));
+	return xmlOrigin;
+}
+
+tinyxml2::XMLNode * Ellipse::serialize(tinyxml2::XMLDocument &xmlDoc)
+{
+	tinyxml2::XMLElement * xmlEllipse = xmlDoc.NewElement("Ellipse");
+	xmlEllipse->SetAttribute("a", m_a);
+	xmlEllipse->SetAttribute("b", m_b);
+	xmlEllipse->InsertFirstChild(IdealFigure::serialize(xmlDoc));
+	return xmlEllipse;
+}
+
 

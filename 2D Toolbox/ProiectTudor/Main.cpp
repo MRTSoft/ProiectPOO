@@ -13,6 +13,8 @@ int main()
 {
 	//App* a = App::getInstance();
 	using namespace tinyxml2;
+
+	Circle myCirc(0, 0, 20.5);
 	tinyxml2::XMLDocument xmlDoc;
 	XMLNode * pRoot = xmlDoc.NewElement("Root");
 	XMLDeclaration * dec = xmlDoc.NewDeclaration();
@@ -29,6 +31,9 @@ int main()
 	auxPt->SetAttribute("x", 3.0f);
 	auxPt->SetAttribute("y", 4.0f);
 	curPos = pRoot->InsertAfterChild(curPos, auxPt);
+	XMLNode * xmlCirc = myCirc.serialize(xmlDoc);
+	curPos = pRoot->InsertAfterChild(curPos, xmlCirc);
+
 	//std::ifstream * fp = new std::ifstream("first.xml");
 	FILE * fp = new FILE;
 	fopen_s(&fp, "first.xml", "w");
@@ -37,7 +42,7 @@ int main()
 
 	
 
-	xmlDoc.LoadFile("first.xml");
+	//xmlDoc.LoadFile("first.xml");
 	xmlDoc.Print();
 	return 0;
 }

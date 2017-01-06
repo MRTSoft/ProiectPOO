@@ -67,6 +67,26 @@ double ConvexPolygon::perimeter()
 	return r_perim;
 }
 
+tinyxml2::XMLNode * ConvexPolygon::serialize(tinyxml2::XMLDocument & xmlDoc)
+{
+	tinyxml2::XMLElement * xmlPts = xmlDoc.NewElement("ConvexPolygon");
+	xmlPts->SetAttribute("count", m_nr);
+	List<Point>::listElem * p = m_points.getHead();
+	if (p != nullptr)
+	{
+		tinyxml2::XMLNode * xmlPt = p->data.serialize(xmlDoc);
+		tinyxml2::XMLNode * xmlCurrent = xmlPts->InsertFirstChild(xmlPt);
+		p = p->next;
+		while (p != nullptr)
+		{
+			tinyxml2::XMLNode * xmlPt = p->data.serialize(xmlDoc);
+			tinyxml2::XMLNode * xmlCurrent = xmlPts->InsertAfterChild(xmlCurrent, xmlPt);
+			p = p->next;
+		}
+	}
+	return xmlPts;
+}
+
 void ConvexPolygon::dbg_print_points(std::ostream & g)
 {
 	List<Point>::listElem* pts = m_points.getHead();
