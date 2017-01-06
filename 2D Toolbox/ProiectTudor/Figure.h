@@ -24,7 +24,7 @@ protected:
 private:
 };
 
-//Interfata - Clasa dde baza
+//Interfata - Clasa de baza
 class Figure
 {
 public:

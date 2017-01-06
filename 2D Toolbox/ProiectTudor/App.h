@@ -16,10 +16,21 @@ public:
 	* Creaza o noua instanta si returneaza o referinta la aceasta si o salveaza in m_singleApp
 	* Daca exista o instanta va returna m_singleApp
 	*/
-	static App * getInstance();
+	static App * getInstance()
+	{
+		if (!m_isInstantiated)
+		{
+			App::m_singleApp = new App();
+			App::m_isInstantiated = true;
+		}
+		return App::m_singleApp;
+	}
 	
 	//! Destructor
-	~App();
+	~App()
+	{
+		App::m_isInstantiated = false;
+	}
 protected:
 
 private:
@@ -35,4 +46,8 @@ private:
 	{
 		//constructor privat;
 	};
+	App(const App &a)
+	{
+		//constructor de copiere
+	}
 };
