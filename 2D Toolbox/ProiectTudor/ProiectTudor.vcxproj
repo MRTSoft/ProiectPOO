@@ -149,6 +149,7 @@
     <ClCompile Include="Figure.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PointSet.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -159,6 +160,10 @@
     <ClInclude Include="IdealFigure.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="PointSet.h" />
+    <ClInclude Include="tinyxml2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

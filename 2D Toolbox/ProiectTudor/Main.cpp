@@ -1,36 +1,43 @@
 #include <iostream>
 #include <fstream>
+#include <stdio.h>
 
 #include "App.h"
 #include "List.h"
 #include "Ellipse.h"
 #include "Circle.h"
 #include "ConvexPolygon.h"
+#include "tinyxml2.h"
 
 int main()
 {
 	//App* a = App::getInstance();
-	Circle c1(Point(0, 0), 1.0);
-	ConvexPolygon c20 = c1.rasterize(500);
-	std::cout <<   "Circle      Area: " << c1.area();
-	std::cout << "\nCircle Poly Area: " << c20.area();
-
-	std::cout << "\nCircle      Perim: " << c1.perimeter();
-	std::cout << "\nCircle Poly Perim: " << c20.perimeter();
-	Ellipse e1(Point(0.0, 0.0), 2, 1);
+	using namespace tinyxml2;
+	tinyxml2::XMLDocument xmlDoc;
+	XMLNode * pRoot = xmlDoc.NewElement("Root");
+	XMLDeclaration * dec = xmlDoc.NewDeclaration();
+	xmlDoc.InsertFirstChild(pRoot);
+	xmlDoc.InsertFirstChild(dec);
 	
-	ConvexPolygon e20 = e1.rasterize(200);
-	std::cout << "\n\nEllipse      Area: " << e1.area();
-	std::cout << "\nEllipse Poly Area: " << e20.area();
+	XMLElement * auxPt = xmlDoc.NewElement("Point");
+	auxPt->SetAttribute("x", 1.0f);
+	auxPt->SetAttribute("y", 2.0f);
+	XMLNode * curPos = pRoot->InsertFirstChild(auxPt);
 
-	std::cout << "\nEllipse      Perim: " << e1.perimeter();
-	std::cout << "\nEllipse Poly Perim: " << e20.perimeter() << std::endl;
+	auxPt = xmlDoc.NewElement("Point");
+
+	auxPt->SetAttribute("x", 3.0f);
+	auxPt->SetAttribute("y", 4.0f);
+	curPos = pRoot->InsertAfterChild(curPos, auxPt);
+	//std::ifstream * fp = new std::ifstream("first.xml");
+	FILE * fp = new FILE;
+	fopen_s(&fp, "first.xml", "w");
+	xmlDoc.SaveFile(fp);
+	fclose(fp);
+
 	
-	std::ofstream g("output.sci");
-	e1.rasterize(5).dbg_print_points(g);
-	e1.rasterize(13).dbg_print_points(g);
-	e1.rasterize(25).dbg_print_points(g);
-	//e20.dbg_print_points(g);
-	g.close();
+
+	xmlDoc.LoadFile("first.xml");
+	xmlDoc.Print();
 	return 0;
 }

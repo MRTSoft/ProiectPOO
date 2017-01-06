@@ -1,7 +1,7 @@
 #pragma once
 #include "IdealFigure.h"
 
-class Ellipse : IdealFigure
+class Ellipse : public IdealFigure
 {
 private:
 	double m_a;
