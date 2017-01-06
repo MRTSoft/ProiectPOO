@@ -9,7 +9,7 @@ double Ellipse::area()
 double Ellipse::perimeter()
 {
 	//Ramanujan approximation taken from https://en.wikipedia.org/wiki/Ellipse#Area
-	return (PI * (3.0 * (m_a + m_b) - sqrt((3.0 * m_a + m_b) + (m_a + 3.0 * m_b))));
+	return (PI * (3.0 * (m_a + m_b) - sqrt((3.0 * m_a + m_b) * (m_a + 3.0 * m_b))));
 }
 
 ConvexPolygon Ellipse::rasterize(unsigned p_resolution)
@@ -25,7 +25,6 @@ ConvexPolygon Ellipse::rasterize(unsigned p_resolution)
 		t += increment;
 		points.insert(p);
 	}
-
 	return ConvexPolygon(points, p_resolution);
 }
 

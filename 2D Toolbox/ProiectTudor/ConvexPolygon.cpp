@@ -1,3 +1,5 @@
+#include <iostream>
+#include <iomanip>
 #include <math.h>
 #include "ConvexPolygon.h"
 
@@ -64,3 +66,33 @@ double ConvexPolygon::perimeter()
 	}
 	return r_perim;
 }
+
+void ConvexPolygon::dbg_print_points(std::ostream & g)
+{
+	List<Point>::listElem* pts = m_points.getHead();
+	Point first = pts->data;
+	g << "x = []" << std::endl;
+	g << std::setprecision(20);
+	while (pts != nullptr)
+	{
+		g << "x = [x " << pts->data.x << "];" << std::endl;
+		if (pts->next != nullptr)
+			g << " ";
+		pts = pts->next;
+	}
+	g << "x = [x " << first.x << "];" << std::endl;
+
+	pts = m_points.getHead();
+	g << "y = []" << std::endl;
+	//g << std::setprecision(2);
+	while (pts != nullptr)
+	{
+		g << "y = [y " << pts->data.y << "];" << std::endl;
+		if (pts->next != nullptr)
+			g << " ";
+		pts = pts->next;
+	}
+	g << "y = [y " << first.y << "];" << std::endl;
+	g << "plot(x,y)" << std::endl;
+}
+

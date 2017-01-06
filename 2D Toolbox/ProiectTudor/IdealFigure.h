@@ -9,6 +9,11 @@ public:
 	IdealFigure(Point origin = Point(0, 0)) : m_origin(origin) {};
 	IdealFigure(Point::pointType ox, Point::pointType oy) : m_origin(ox, oy) {}
 	~IdealFigure() {};
+
+	/*! NOTE Functia nu pastreaza Aria/Perimetrul figurii dar este garantat ca va da tot timpul
+	 *  Un poligon convex inscris in figura data deci cu aria mai mica sau egala
+	 *  O valoare mai mare de 50 va da rezultate destul de bune dpdv vizual
+	*/
 	virtual ConvexPolygon rasterize(unsigned rezolution) = 0;
 
 	

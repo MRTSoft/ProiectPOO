@@ -28,7 +28,7 @@ private:
 class Figure
 {
 public:
-	virtual ~Figure() = 0;
+	virtual ~Figure() {};
 
 	virtual double area() = 0;
 	virtual double perimeter() = 0;

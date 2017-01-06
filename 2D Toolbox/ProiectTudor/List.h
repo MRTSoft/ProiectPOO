@@ -104,7 +104,7 @@ public:
 	//! Removes the first element of the list
 	T removeHead()
 	{
-		T retValue = 0;
+		T retValue;
 		if (!isEmpty()) {
 			retValue = m_head->data;
 			listElem * p = m_head;
@@ -125,6 +125,6 @@ private:
 	listElem *	m_head;
 	
 	/* * * * * * * * * * *    -F.R.I.E.N.D.S.-   * * * * * * * * * * * * */
-	friend PointSet;
-	friend ConvexPolygon;
+	friend class PointSet;
+	friend class ConvexPolygon;
 };
