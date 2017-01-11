@@ -34,7 +34,7 @@ void Circle::print(std::ostream & g)
 	g << "\n";
 }
 
-ConvexPolygon Circle::rasterize(unsigned p_resolution)
+ConvexPolygon * Circle::rasterize(unsigned p_resolution)
 {
 	List<Point> points;
 	Point p;
@@ -48,7 +48,7 @@ ConvexPolygon Circle::rasterize(unsigned p_resolution)
 		points.insert(p);
 	}
 	
-	return ConvexPolygon(points, p_resolution);
+	return new ConvexPolygon(points, p_resolution);
 }
 
 tinyxml2::XMLNode * Circle::serialize(tinyxml2::XMLDocument & xmlDoc)

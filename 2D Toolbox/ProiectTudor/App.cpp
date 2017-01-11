@@ -1,4 +1,5 @@
 #include <string.h>
+#include <string>
 #include <fstream>
 
 #include "App.h"
@@ -6,6 +7,7 @@
 #include "ConvexPolygon.h"
 #include "Circle.h"
 #include "Ellipse.h"
+#include "Globals.h"
 
 
 List<Figure *> App::data;
@@ -18,7 +20,6 @@ void App::loadXmlData(const char * pXmlName)
 
 	if (xmlErr == tinyxml2::XMLError::XML_SUCCESS)
 	{
-		xmlDoc.Print();
 		tinyxml2::XMLElement * elemIt = xmlDoc.RootElement()->FirstChildElement();
 		while (elemIt)
 		{
@@ -36,31 +37,36 @@ void App::loadXmlData(const char * pXmlName)
 				}
 				//PointSet ps(pl, points_nr);
 				Figure * fg = new PointSet(pl, points_nr);
-
 				App::data.insert(fg);
 			}
-			if (strcmp(elemIt->Name(), "PointSet") == 0)
+			else if (strcmp(elemIt->Name(), "PointSet") == 0)
 			{
 				Figure * ps = new PointSet(elemIt);
 				App::data.insert(ps);
+				elemIt = elemIt->NextSiblingElement();
 			}
-
-			if (strcmp(elemIt->Name(), "ConvexPolygon") == 0)
+			else if (strcmp(elemIt->Name(), "ConvexPolygon") == 0)
 			{
 				Figure * cp = new ConvexPolygon(elemIt);
 				App::data.insert(cp);
+				elemIt = elemIt->NextSiblingElement();
 			}
-			if (strcmp(elemIt->Name(), "Circle") == 0)
+			else if (strcmp(elemIt->Name(), "Circle") == 0)
 			{
 				Figure * crc = new Circle(elemIt);
 				App::data.insert(crc);
+				elemIt = elemIt->NextSiblingElement();
 			}
-			if (strcmp(elemIt->Name(), "Ellipse") == 0)
+			else if (strcmp(elemIt->Name(), "Ellipse") == 0)
 			{
 				Figure * elp = new Ellipse(elemIt);
 				App::data.insert(elp);
+				elemIt = elemIt->NextSiblingElement();
 			}
-			elemIt = elemIt->NextSiblingElement();
+			else
+			{
+				elemIt = elemIt->NextSiblingElement();
+			}
 		}
 	}
 	else
@@ -70,7 +76,7 @@ void App::loadXmlData(const char * pXmlName)
 
 }
 
-void App::exportXmlData(char * pXmlName)
+void App::exportXmlData(const char * pXmlName)
 {
 	tinyxml2::XMLDocument xmlDoc;
 	tinyxml2::XMLElement * pRoot = xmlDoc.NewElement("Root");
@@ -134,4 +140,95 @@ double App::calculateTotalPerimeter()
 		p = p->next;
 	}
 	return tPerim;
+}
+//! Adauga o figura la lista curenta
+void App::addFigure(Figure * fig)
+{
+	App::data.insert(fig);
+}
+
+
+/* 
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ * - - - - - - - - - - - - - - - - -    OPERATII   - - - - - - - - - - - - - - - - - - - - -
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+*/
+
+void OperationImportXML::ExecuteOperation()
+{
+	std::string xmlName = "";
+	std::cout << "Introduceti numele fisierului XML: \n > ";
+	std::cin >> xmlName;
+	App::loadXmlData(xmlName.c_str());
+	std::cout << "Datele au fost importate cu succes!\n";
+	Pause();
+}
+
+void OperationExportXML::ExecuteOperation()
+{
+	std::string xmlName = "";
+	std::cout << "Introduceti numele fisierului XML: \n > ";
+	std::cin >> xmlName;
+	App::exportXmlData(xmlName.c_str());
+	std::cout << "Datele au fost exportate cu succes!\n";
+	Pause();
+}
+
+void OperationDisplayFigures::ExecuteOperation()
+{
+	App::printFiguresData();
+	Pause();
+}
+
+void OperationCalculateArea::ExecuteOperation()
+{
+	double area = App::calculateTotalArea();
+	std::cout << "Suma ariilor figurilor este: " << area;
+	std::cout << "\n";
+	Pause();
+}
+
+void OperationCalculatePerimeter::ExecuteOperation()
+{
+	double perim = App::calculateTotalPerimeter();
+	std::cout << "Suma perimetrelor figurilor este: " << perim;
+	std::cout << "\n";
+	Pause();
+}
+
+void OperationAddCircle::ExecuteOperation()
+{
+	double radius = 0;
+	Point origin;
+	std::cout << "Introduceti diametrul cercului: ";
+	std::cin >> radius;
+	radius = radius / 2;
+	std::cout << "Origine: \n\tx = ";
+	std::cin >> origin.x;
+	std::cout << "\ty = ";
+	std::cin >> origin.y;
+	Figure * circle = new Circle(origin, radius);
+	App::addFigure(circle);
+	std::cout << "Adaugat!";
+	Pause();
+}
+
+void OperationAddNgon::ExecuteOperation()
+{
+	double radius = 0;
+	Point origin;
+	unsigned sides = 4;
+	std::cout << "Introduceti numarul de laturi: ";
+	std::cin >> sides;
+	std::cout << "Introduceti latura poligonului regulat: ";
+	std::cin >> radius;
+	radius = radius / (2 * sin(PI/sides));
+	std::cout << "Origine: \n\tx = ";
+	std::cin >> origin.x;
+	std::cout << "\ty = ";
+	std::cin >> origin.y;
+	Figure * circle = new Circle(origin, radius);
+	circle = dynamic_cast<Circle *>(circle)->rasterize(sides);
+	App::addFigure(circle);
+
 }

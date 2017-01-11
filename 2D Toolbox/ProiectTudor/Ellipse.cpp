@@ -36,7 +36,7 @@ void Ellipse::print(std::ostream & g)
 	g << "\n";
 }
 
-ConvexPolygon Ellipse::rasterize(unsigned p_resolution)
+ConvexPolygon * Ellipse::rasterize(unsigned p_resolution)
 {
 	List<Point> points;
 	Point p;
@@ -49,7 +49,7 @@ ConvexPolygon Ellipse::rasterize(unsigned p_resolution)
 		t += increment;
 		points.insert(p);
 	}
-	return ConvexPolygon(points, p_resolution);
+	return new ConvexPolygon(points, p_resolution);
 }
 
 tinyxml2::XMLNode * IdealFigure::serialize(tinyxml2::XMLDocument & xmlDoc)

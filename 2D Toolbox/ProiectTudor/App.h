@@ -1,6 +1,7 @@
 #pragma once
 #include "List.h"
 #include "Figure.h"
+#include "Menu.h"
 
 //Implementam modelul Singleton pentru clasa App
 
@@ -57,12 +58,14 @@ public: //DEBUG ONLY!!!!
 	static void loadXmlData(const char * pXmlName);
 	//static void loadVertexData(char * pTxtName);
 
-	static void exportXmlData(char * pXmlName);
+	static void exportXmlData(const char * pXmlName);
 	//static void exportTxtData(char * pTxtName);
 
 	static void printFiguresData();
 	static double calculateTotalArea();
 	static double calculateTotalPerimeter();
+
+	static void addFigure(Figure * fig);
 
 	//static void convertToPloygon();
 
@@ -83,4 +86,59 @@ private:
 	{
 		//constructor de copiere
 	}
+};
+
+class OperationImportXML : public Operation
+{
+public:
+	OperationImportXML(char * name) : Operation(name) {};
+	void ExecuteOperation();
+private:
+};
+
+class OperationExportXML : public Operation
+{
+public:
+	OperationExportXML(char * name) : Operation(name) {};
+	void ExecuteOperation();
+private:
+};
+
+class OperationDisplayFigures : public Operation
+{
+public:
+	OperationDisplayFigures(char * name) : Operation(name) {}
+	void ExecuteOperation();
+private:
+};
+
+class OperationCalculateArea : public Operation
+{
+public:
+	OperationCalculateArea(char * name) : Operation(name) {};
+	void ExecuteOperation();
+private:
+};
+
+class OperationCalculatePerimeter : public Operation
+{
+public:
+	OperationCalculatePerimeter(char * name) : Operation(name) {}
+	void ExecuteOperation();
+private:
+};
+
+class OperationAddCircle : public Operation
+{
+public:
+	OperationAddCircle(char * name) : Operation(name) {}
+	void ExecuteOperation();
+};
+
+class OperationAddNgon : public Operation
+{
+public:
+	OperationAddNgon(char * name) :Operation(name) {}
+	void ExecuteOperation();
+private:
 };

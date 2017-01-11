@@ -16,7 +16,7 @@ public:
 	double area();
 	double perimeter();
 	void print(std::ostream & g);
-	ConvexPolygon rasterize(unsigned p_resolution = IF_RASTER_REZOLUTION);
+	ConvexPolygon * rasterize(unsigned p_resolution = IF_RASTER_REZOLUTION);
 	virtual tinyxml2::XMLNode * serialize(tinyxml2::XMLDocument &xmlDoc);
 
 };

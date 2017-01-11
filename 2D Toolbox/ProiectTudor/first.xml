@@ -11,6 +11,16 @@
         <Point x="1" y="2"/>
         <Point x="1" y="1"/>
     </PointSet>
+  <Circle radius="20">
+    <Origin>
+      <Point x="6" y="0"/>
+    </Origin>
+  </Circle>
+  <Circle radius="3">
+    <Origin>
+      <Point x="2.5" y="3.7"/>
+    </Origin>
+  </Circle>
     <Ellipse a="2" b="1">
         <Origin>
             <Point x="0" y="0"/>

@@ -10,7 +10,7 @@
 #include "ConvexPolygon.h"
 #include "tinyxml2.h"
 
-
+/*
 void RecursivePrint(tinyxml2::XMLElement * node)
 {
 	if (node != 0)
@@ -31,6 +31,7 @@ void RecursivePrint(tinyxml2::XMLElement * node)
 		}
 	}
 }
+*/
 
 int main()
 {
@@ -38,68 +39,31 @@ int main()
 	using namespace tinyxml2;
 	using namespace std;
 
-	/*
-	Circle myCirc(0, 0, 20.5);
-	tinyxml2::XMLDocument xmlDoc;
-	XMLNode * pRoot = xmlDoc.NewElement("Root");
-	XMLDeclaration * dec = xmlDoc.NewDeclaration();
-	xmlDoc.InsertFirstChild(pRoot);
-	xmlDoc.InsertFirstChild(dec);
+	//ACTUAL APP
+	Menu * menu = new Menu("2D Toolbox");
+	Menu * importSubmenu = new Menu("Importa date");
+	Menu * exportSubmenu = new Menu("Exporta date");
+	Menu * procesSubmenu = new Menu("Procesare date");
+	Menu * procAddSubmenu = new Menu("Adaugare Figuri");
 	
-	XMLElement * auxPt = xmlDoc.NewElement("Point");
-	auxPt->SetAttribute("x", 1.0f);
-	auxPt->SetAttribute("y", 2.0f);
-	XMLNode * curPos = pRoot->InsertFirstChild(auxPt);
+	menu->AddItem(importSubmenu);
+	importSubmenu->AddItem(new OperationImportXML("Din format XML"));
 
-	auxPt = xmlDoc.NewElement("Point");
 
-	auxPt->SetAttribute("x", 3.0f);
-	auxPt->SetAttribute("y", 4.0f);
-	curPos = pRoot->InsertAfterChild(curPos, auxPt);
-	XMLNode * xmlCirc = myCirc.serialize(xmlDoc);
-	curPos = pRoot->InsertAfterChild(curPos, xmlCirc);
-
-	//std::ifstream * fp = new std::ifstream("first.xml");
-	FILE * fp = new FILE;
-	fopen_s(&fp, "first.xml", "w");
-	xmlDoc.SaveFile(fp);
-	fclose(fp);
-
+	menu->AddItem(exportSubmenu);
+	exportSubmenu->AddItem(new OperationExportXML("In format XML"));
 	
+	menu->AddItem(procesSubmenu);
+	procesSubmenu->AddItem(new OperationCalculateArea("Calcul ARIE"));
+	procesSubmenu->AddItem(new OperationCalculatePerimeter("Calcul PERIMETRU"));
+	procesSubmenu->AddItem(new OperationDisplayFigures("Afisare date"));
+	procesSubmenu->AddItem(procAddSubmenu);
+	procAddSubmenu->AddItem(new OperationAddCircle("Cerc"));
+	procAddSubmenu->AddItem(new OperationAddNgon("Poligon regulat"));
 
-	//xmlDoc.LoadFile("first.xml");
-	xmlDoc.Print();
-	*/
-	XMLDocument xmlDoc;
-	//xmlDoc.LoadFile("first.xml");
-	XMLNode * pRoot = xmlDoc.NewElement("Root");
-	XMLDeclaration * dec = xmlDoc.NewDeclaration();
-	xmlDoc.InsertFirstChild(pRoot);
-	xmlDoc.InsertFirstChild(dec);
 
-	//XMLElement * docRoot = xmlDoc.RootElement();
-	//XMLElement * xmlFigure = docRoot->FirstChildElement();
-	//RecursivePrint(docRoot);
-	List<Point> lp;
-	lp.insert(Point(1, 1)); lp.insert(Point(1, 2)); lp.insert(Point(2, 2)); lp.insert(Point(2, 1));
-	ConvexPolygon cp(lp,4);
-	Ellipse el(Point(0, 0), 2, 1);
-	lp.removeHead();
-	PointSet ps(lp, 3);
-	XMLNode * cpXML = cp.serialize(xmlDoc);
-	pRoot->InsertFirstChild(cpXML);
-	pRoot->InsertFirstChild(el.serialize(xmlDoc));
-	pRoot->InsertFirstChild(ps.serialize(xmlDoc));
-	pRoot->InsertFirstChild(Circle(0, 0, 10).serialize(xmlDoc));
-	pRoot->InsertFirstChild(Point(5, 3.57).serialize(xmlDoc));
-	//xmlDoc.Print();
-	
-
-	App::loadXmlData("first.xml");
-
-	App::printFiguresData();
-
-	App::exportXmlData("copy.xml");
+	//procesSubmenu->AddItem(new OperationAddCircle("Cerc"));
+	menu->Execute();
 
 	return 0;
 }
