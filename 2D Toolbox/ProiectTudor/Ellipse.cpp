@@ -1,6 +1,21 @@
 #include <math.h>
 #include "Ellipse.h"
 
+Ellipse::Ellipse(tinyxml2::XMLElement * xmlElem) : IdealFigure(Point()), m_a(0), m_b(0)
+{
+	if (xmlElem)
+	{
+		//m_radius = xmlElem->DoubleAttribute("radius");
+		m_a = xmlElem->DoubleAttribute("a");
+		m_b = xmlElem->DoubleAttribute("b");
+		tinyxml2::XMLElement * orgElem = xmlElem->FirstChildElement("Origin");
+		if (orgElem)
+		{
+			IdealFigure::m_origin = Point(orgElem->FirstChildElement("Point"));
+		}
+	}
+}
+
 double Ellipse::area()
 {
 	return PI * m_a * m_b;
@@ -10,6 +25,15 @@ double Ellipse::perimeter()
 {
 	//Ramanujan approximation taken from https://en.wikipedia.org/wiki/Ellipse#Area
 	return (PI * (3.0 * (m_a + m_b) - sqrt((3.0 * m_a + m_b) * (m_a + 3.0 * m_b))));
+}
+
+void Ellipse::print(std::ostream & g)
+{
+	g << "[Ellipse Object]\n\t-Origin (";
+	g << m_origin.x << ", " << m_origin.y;
+	g << ")\n\t-Major semiaxis (a): " << m_a;
+	g << "\n\t-Minor semiaxis (b): " << m_b;
+	g << "\n";
 }
 
 ConvexPolygon Ellipse::rasterize(unsigned p_resolution)

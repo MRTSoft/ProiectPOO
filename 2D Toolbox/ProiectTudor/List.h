@@ -1,5 +1,6 @@
 #pragma once
 
+
 template <class T>
 class List
 {
@@ -125,6 +126,8 @@ private:
 	listElem *	m_head;
 	
 	/* * * * * * * * * * *    -F.R.I.E.N.D.S.-   * * * * * * * * * * * * */
+	
 	friend class PointSet;
 	friend class ConvexPolygon;
+	friend class App;
 };

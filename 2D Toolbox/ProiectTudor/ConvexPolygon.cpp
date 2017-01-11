@@ -17,6 +17,22 @@ ConvexPolygon::ConvexPolygon(List<Point> lst, unsigned lst_count) : PointSet(lst
 
 }
 
+ConvexPolygon::ConvexPolygon(tinyxml2::XMLElement * xmlElem)
+{
+	m_points = List<Point>();
+	m_nr = 0;
+	if (xmlElem)
+	{
+		tinyxml2::XMLElement * pointElemIterator = xmlElem->LastChildElement("Point");
+		m_nr = xmlElem->UnsignedAttribute("count");
+		while (pointElemIterator)
+		{
+			m_points.insert(Point(pointElemIterator));
+			pointElemIterator = pointElemIterator->PreviousSiblingElement("Point");
+		}
+	}
+}
+
 double ConvexPolygon::area()
 {
 	double r_area = 0.0;
@@ -67,6 +83,20 @@ double ConvexPolygon::perimeter()
 	return r_perim;
 }
 
+void ConvexPolygon::print(std::ostream & g)
+{
+	g << "[Convex Polygon Object]";
+	g << "\n\t-Count " << m_nr;
+	List<Point>::listElem * p = m_points.getHead();
+	g << "\n";
+	while (p != nullptr)
+	{
+		g << "\t";
+		p->data.print(g);
+		p = p->next;
+	}
+}
+
 tinyxml2::XMLNode * ConvexPolygon::serialize(tinyxml2::XMLDocument & xmlDoc)
 {
 	tinyxml2::XMLElement * xmlPts = xmlDoc.NewElement("ConvexPolygon");
@@ -80,7 +110,7 @@ tinyxml2::XMLNode * ConvexPolygon::serialize(tinyxml2::XMLDocument & xmlDoc)
 		while (p != nullptr)
 		{
 			tinyxml2::XMLNode * xmlPt = p->data.serialize(xmlDoc);
-			tinyxml2::XMLNode * xmlCurrent = xmlPts->InsertAfterChild(xmlCurrent, xmlPt);
+			xmlCurrent = xmlPts->InsertAfterChild(xmlCurrent, xmlPt);
 			p = p->next;
 		}
 	}

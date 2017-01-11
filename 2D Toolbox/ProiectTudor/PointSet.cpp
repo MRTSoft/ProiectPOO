@@ -47,6 +47,22 @@ PointSet::PointSet(const List<Point>& lst, const unsigned lst_count)
 	m_nr = lst_count;
 }
 
+PointSet::PointSet(tinyxml2::XMLElement * xmlElem)
+{
+	m_points = List<Point>();
+	m_nr = 0;
+	if (xmlElem)
+	{
+		tinyxml2::XMLElement * pointElemIterator = xmlElem->LastChildElement("Point");
+		m_nr = xmlElem->UnsignedAttribute("count");
+		while (pointElemIterator)
+		{
+			m_points.insert(Point(pointElemIterator));
+			pointElemIterator = pointElemIterator->PreviousSiblingElement("Point");
+		}
+	}
+}
+
 PointSet::~PointSet()
 {
 	//Nothing to do here
@@ -65,11 +81,25 @@ tinyxml2::XMLNode * PointSet::serialize(tinyxml2::XMLDocument & xmlDoc)
 		while (p != nullptr)
 		{
 			tinyxml2::XMLNode * xmlPt = p->data.serialize(xmlDoc);
-			tinyxml2::XMLNode * xmlCurrent = xmlPts->InsertAfterChild(xmlCurrent, xmlPt);
+			xmlCurrent = xmlPts->InsertAfterChild(xmlCurrent, xmlPt);
 			p = p->next;
 		}
 	}
 	return xmlPts;
+}
+
+void PointSet::print(std::ostream & g)
+{
+	g << "[Point Set Object]";
+	g << "\n\t-Count " << m_nr;
+	List<Point>::listElem * p = m_points.getHead();
+	g << "\n";
+	while (p != nullptr)
+	{
+		g << "\t";
+		p->data.print(g);
+		p = p->next;
+	}
 }
 
 

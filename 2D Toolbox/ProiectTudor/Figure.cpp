@@ -12,6 +12,22 @@ Point::Point(pointType p_x, pointType p_y)
 	y = p_y;
 }
 
+Point::Point(tinyxml2::XMLElement * elem)
+{
+	x = y = 0;
+	if (elem)
+	{
+		x = elem->DoubleAttribute("x");
+		y = elem->DoubleAttribute("y");
+	}
+}
+
+
+void Point::print(std::ostream & g)
+{
+	g << "[Point Object] -> (";
+	g << x << ", " << y << ")\n";
+}
 
 double Point::distanceTo(const Point & p)
 {

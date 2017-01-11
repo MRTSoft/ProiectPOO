@@ -14,6 +14,7 @@ public:
 	 *  Un poligon convex inscris in figura data deci cu aria mai mica sau egala
 	 *  O valoare mai mare de 50 va da rezultate destul de bune dpdv vizual
 	*/
+	virtual void print(std::ostream & g) = 0;
 	virtual ConvexPolygon rasterize(unsigned rezolution) = 0;
 	virtual tinyxml2::XMLNode * serialize(tinyxml2::XMLDocument &xmlDoc);
 	

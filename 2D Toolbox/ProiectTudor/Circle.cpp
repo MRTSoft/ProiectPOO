@@ -1,6 +1,21 @@
 #include <math.h>
 #include "Circle.h"
 
+Circle::Circle(tinyxml2::XMLElement * xmlElem) :IdealFigure(Point(0, 0)), m_radius(0)
+{
+	//creates a Circle from a XML Element
+	if (xmlElem)
+	{
+		m_radius = xmlElem->DoubleAttribute("radius");
+		tinyxml2::XMLElement * originElem = xmlElem->FirstChildElement("Origin");
+		if (originElem)
+		{
+			Point org(originElem->FirstChildElement("Point"));
+			IdealFigure::m_origin = org;
+		}
+	}
+}
+
 double Circle::area()
 {
 	return PI * m_radius * m_radius;
@@ -9,6 +24,14 @@ double Circle::area()
 double Circle::perimeter()
 {
 	return 2.0 * PI * m_radius;
+}
+
+void Circle::print(std::ostream & g)
+{
+	g << "[Circle Object]\n\t-Origin (";
+	g << m_origin.x << ", "<<m_origin.y;
+	g << ")\n\t-Radius " << m_radius;
+	g << "\n";
 }
 
 ConvexPolygon Circle::rasterize(unsigned p_resolution)

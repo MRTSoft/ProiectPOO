@@ -30,10 +30,13 @@ public:
 	{
 		App::m_isInstantiated = false;
 	}
-protected:
+//protected: // PRODUCTION
+public: //DEBUG ONLY!!!!
+	//TODO MOdificat aceasta sectiune ca protected
+
 	//static tip_date data
 	//Lista de pointeri Figura
-	static List<Figure> data;
+	static List<Figure *> data;
 
 
 	//Toate operatiile vor fi definite ca functii virtuale protejate
@@ -57,7 +60,7 @@ protected:
 	//static void exportXmlData(char * pXmlName);
 	//static void exportTxtData(char * pTxtName);
 
-//	static void printFiguresData();
+	static void printFiguresData();
 	//static void calculateTotalArea();
 	//static void calculateTotalPerimeter();
 

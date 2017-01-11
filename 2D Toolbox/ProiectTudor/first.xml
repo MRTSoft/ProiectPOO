@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root>
-    <Point x="1" y="2"/>
-    <Point x="3" y="4"/>
-    <Circle radius="20.5">
+    <Point x="5" y="3.5699999999999998"/>
+    <Circle radius="10">
         <Origin>
             <Point x="0" y="0"/>
         </Origin>
     </Circle>
+    <PointSet count="3">
+        <Point x="2" y="2"/>
+        <Point x="1" y="2"/>
+        <Point x="1" y="1"/>
+    </PointSet>
+    <Ellipse a="2" b="1">
+        <Origin>
+            <Point x="0" y="0"/>
+        </Origin>
+    </Ellipse>
+    <ConvexPolygon count="4">
+        <Point x="2" y="1"/>
+        <Point x="2" y="2"/>
+        <Point x="1" y="2"/>
+        <Point x="1" y="1"/>
+    </ConvexPolygon>
 </Root>

@@ -71,10 +71,38 @@ int main()
 	xmlDoc.Print();
 	*/
 	XMLDocument xmlDoc;
-	xmlDoc.LoadFile("first.xml");
-	XMLElement * docRoot = xmlDoc.RootElement();
-	XMLElement * xmlFigure = docRoot->FirstChildElement();
-	RecursivePrint(docRoot);
+	//xmlDoc.LoadFile("first.xml");
+	XMLNode * pRoot = xmlDoc.NewElement("Root");
+	XMLDeclaration * dec = xmlDoc.NewDeclaration();
+	xmlDoc.InsertFirstChild(pRoot);
+	xmlDoc.InsertFirstChild(dec);
+
+	//XMLElement * docRoot = xmlDoc.RootElement();
+	//XMLElement * xmlFigure = docRoot->FirstChildElement();
+	//RecursivePrint(docRoot);
+	List<Point> lp;
+	lp.insert(Point(1, 1)); lp.insert(Point(1, 2)); lp.insert(Point(2, 2)); lp.insert(Point(2, 1));
+	ConvexPolygon cp(lp,4);
+	Ellipse el(Point(0, 0), 2, 1);
+	lp.removeHead();
+	PointSet ps(lp, 3);
+	XMLNode * cpXML = cp.serialize(xmlDoc);
+	pRoot->InsertFirstChild(cpXML);
+	pRoot->InsertFirstChild(el.serialize(xmlDoc));
+	pRoot->InsertFirstChild(ps.serialize(xmlDoc));
+	pRoot->InsertFirstChild(Circle(0, 0, 10).serialize(xmlDoc));
+	pRoot->InsertFirstChild(Point(5, 3.57).serialize(xmlDoc));
+	//xmlDoc.Print();
 	
+
+	FILE * fp = new FILE;
+	fopen_s(&fp, "first.xml", "w");
+	xmlDoc.SaveFile(fp);
+	fclose(fp);
+
+	App::loadXmlData("first.xml");
+
+	App::printFiguresData();
+
 	return 0;
 }
