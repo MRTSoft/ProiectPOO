@@ -83,5 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagram.cd" />
+    <None Include="DiagramaMeniu.cd" />
   </ItemGroup>
 </Project>

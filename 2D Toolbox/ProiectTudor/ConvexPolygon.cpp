@@ -117,10 +117,11 @@ tinyxml2::XMLNode * ConvexPolygon::serialize(tinyxml2::XMLDocument & xmlDoc)
 	return xmlPts;
 }
 
-void ConvexPolygon::dbg_print_points(std::ostream & g)
+void ConvexPolygon::sci_print_points(std::ostream & g)
 {
 	List<Point>::listElem* pts = m_points.getHead();
 	Point first = pts->data;
+	g << "isoview(-1,1,-1,1)\n";
 	g << "x = [];" << std::endl;
 	g << std::setprecision(20);
 	while (pts != nullptr)

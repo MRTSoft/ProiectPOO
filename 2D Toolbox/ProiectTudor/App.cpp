@@ -76,6 +76,31 @@ void App::loadXmlData(const char * pXmlName)
 
 }
 
+//!loads data from a file and converts in to a Point Set
+void App::loadVertexData(const char * pTxtName)
+{
+	std::ifstream f(pTxtName);
+	unsigned n = 0;
+	List<Point> lst;
+	if (f.is_open())
+	{
+		double x, y;
+		while(!f.eof() && f)
+		{
+			f >> x;
+			if (!f.eof())
+			{
+				f >> y;
+				lst.insert(Point(x, y));
+				n++;
+			}
+		}
+		f.close();
+		Figure * ps = new PointSet(lst, n);
+		App::addFigure(ps);
+	}
+}
+
 void App::exportXmlData(const char * pXmlName)
 {
 	tinyxml2::XMLDocument xmlDoc;
@@ -106,6 +131,48 @@ void App::exportXmlData(const char * pXmlName)
 	fopen_s(&fp, pXmlName, "w");
 	xmlDoc.SaveFile(fp);
 	fclose(fp);
+}
+
+//! Functie de scris in fisier
+/*!
+ * @param pTxtName Fisierul in care se scrie
+
+*/
+void App::exportSciData(const char * pTxtName)
+{
+	std::ofstream g(pTxtName);
+	if (g.is_open())
+	{
+		List<Figure *>::listElem * p = App::data.getHead();
+		while (p != nullptr)
+		{
+			ConvexPolygon * res = NULL;
+			ConvexPolygon * poly = dynamic_cast<ConvexPolygon*>(p->data);
+			if (poly == NULL) //Circle or Ellipse
+			{
+				Circle * circ = dynamic_cast<Circle *>(p->data);
+				if (circ == NULL)//Ellipse?
+				{
+					Ellipse * ell = dynamic_cast<Ellipse *>(p->data);
+					if (ell != NULL)
+					{
+						res = ell->rasterize();
+					}
+				}
+				else {
+					res = circ->rasterize();
+				}
+			}
+			else {
+				res = poly;
+			}
+			if (res != NULL) {
+				res->sci_print_points(g);
+			}
+			p = p->next;
+		}// while
+		g.close();
+	}
 }
 
 void App::printFiguresData()
@@ -164,6 +231,16 @@ void OperationImportXML::ExecuteOperation()
 	Pause();
 }
 
+void OperationImportTXT::ExecuteOperation()
+{
+	std::string fName = "";
+	std::cout << "Introduceti numele fisierului TXT: \n > ";
+	std::cin >> fName;
+	App::loadVertexData(fName.c_str());
+	std::cout << "Date importate!";
+	Pause();
+}
+
 void OperationExportXML::ExecuteOperation()
 {
 	std::string xmlName = "";
@@ -171,6 +248,16 @@ void OperationExportXML::ExecuteOperation()
 	std::cin >> xmlName;
 	App::exportXmlData(xmlName.c_str());
 	std::cout << "Datele au fost exportate cu succes!\n";
+	Pause();
+}
+
+void OperationExportSCI::ExecuteOperation()
+{
+	std::string fName = "";
+	std::cout << "Introduceti numele fisierului SCI (va fi creat): \n > ";
+	std::cin >> fName;
+	App::exportSciData(fName.c_str());
+	std::cout << "Done!";
 	Pause();
 }
 
@@ -232,3 +319,5 @@ void OperationAddNgon::ExecuteOperation()
 	App::addFigure(circle);
 
 }
+
+

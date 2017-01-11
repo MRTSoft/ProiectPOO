@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="App">
-    <Position X="8.5" Y="0.5" Width="1.5" />
+    <Position X="12" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAEBAAAAAAAAAAAAAAAAAAAQAAgAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAABAAEBAAAAIAAAQBQIAAAAAAAQAAgAwAgAgAAA=</HashCode>
       <FileName>App.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="List&lt;T&gt;">
-    <Position X="12" Y="0.5" Width="1.5" />
+    <Position X="13.75" Y="0.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -25,7 +25,10 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Point">
-    <Position X="10.25" Y="0.5" Width="1.5" />
+    <Position X="12" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <NestedTypes>
       <Typedef Name="Point::pointType" Collapsed="true">
         <TypeIdentifier>
@@ -34,49 +37,49 @@
       </Typedef>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAgAAAAAAAIAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAIAAgAAAAAAAIAAAAAAAAAAAAABgAAAAAAA=</HashCode>
       <FileName>Figure.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Circle">
     <Position X="0.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAgIAAEAAIAAIAAAAAgAAAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>AAQAAAAAAAgIAAEAAIAAIAAAAAgAAAAAAAAAAAAAAAE=</HashCode>
       <FileName>Circle.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ConvexPolygon">
     <Position X="10" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAEAAAAAIEAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>CAQAAAAAAAAAAAEAAAAAIEAAAAAAAAAAAAAAAAAAAAE=</HashCode>
       <FileName>ConvexPolygon.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Ellipse">
     <Position X="4.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAAAEAAIAAIAAAQAAAAAAAAQAAAAAAAAE=</HashCode>
+      <HashCode>AAQAAAACAAAAAAEAAIAAIAAAQAAAAAAAAQAAAAAAAAE=</HashCode>
       <FileName>Ellipse.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Figure">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAEAAAAAIAAAAAAAAAAAAAAAAAAAAAM=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAEAAAAAIAAAAAAAAAAAAAAAAAAAAAM=</HashCode>
       <FileName>Figure.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IdealFigure">
     <Position X="2.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAAIAAoCAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAABAAAAAAAIAAoCAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IdealFigure.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PointSet">
-    <Position X="7.75" Y="3.25" Width="1.5" />
+    <Position X="8" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BCAAAAAAAAAAAAEAAAAAIAAAAQAQAAgAAAIAAAAIAAE=</HashCode>
+      <HashCode>BCQAAAAAAAAAAAEAAAAAIAAAAQAQAAgAAAIAAAAIAAE=</HashCode>
       <FileName>PointSet.h</FileName>
     </TypeIdentifier>
   </Class>

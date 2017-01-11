@@ -11,7 +11,7 @@ public:
 	double perimeter();
 	void print(std::ostream & g);
 	virtual tinyxml2::XMLNode *	serialize(tinyxml2::XMLDocument & xmlDoc);
-	void dbg_print_points(std::ostream &g);
+	void sci_print_points(std::ostream &g);
 
 	
 protected:

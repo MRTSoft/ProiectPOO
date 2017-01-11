@@ -5,6 +5,7 @@
 
 //Implementam modelul Singleton pentru clasa App
 
+//! Clasa 
 class App
 {
 public:	
@@ -56,10 +57,10 @@ public: //DEBUG ONLY!!!!
 	//    - Idealizare
 	//TODO Implementare metode
 	static void loadXmlData(const char * pXmlName);
-	//static void loadVertexData(char * pTxtName);
+	static void loadVertexData(const char * pTxtName);
 
 	static void exportXmlData(const char * pXmlName);
-	//static void exportTxtData(char * pTxtName);
+	static void exportSciData(const char * pTxtName);
 
 	static void printFiguresData();
 	static double calculateTotalArea();
@@ -96,12 +97,29 @@ public:
 private:
 };
 
+class OperationImportTXT : public Operation
+{
+public:
+	OperationImportTXT(char * name) : Operation(name) {};
+	void ExecuteOperation();
+private:
+};
+
 class OperationExportXML : public Operation
 {
 public:
 	OperationExportXML(char * name) : Operation(name) {};
 	void ExecuteOperation();
 private:
+};
+
+class OperationExportSCI : public Operation
+{
+public:
+	OperationExportSCI(char * name) : Operation(name) {}
+	void ExecuteOperation();
+private:
+
 };
 
 class OperationDisplayFigures : public Operation

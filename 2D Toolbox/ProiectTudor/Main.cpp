@@ -48,10 +48,12 @@ int main()
 	
 	menu->AddItem(importSubmenu);
 	importSubmenu->AddItem(new OperationImportXML("Din format XML"));
+	importSubmenu->AddItem(new OperationImportTXT("Din format TXT"));
 
 
 	menu->AddItem(exportSubmenu);
 	exportSubmenu->AddItem(new OperationExportXML("In format XML"));
+	exportSubmenu->AddItem(new OperationExportSCI("In format SciLab (MatLab)"));
 	
 	menu->AddItem(procesSubmenu);
 	procesSubmenu->AddItem(new OperationCalculateArea("Calcul ARIE"));
