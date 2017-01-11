@@ -95,14 +95,11 @@ int main()
 	//xmlDoc.Print();
 	
 
-	FILE * fp = new FILE;
-	fopen_s(&fp, "first.xml", "w");
-	xmlDoc.SaveFile(fp);
-	fclose(fp);
-
 	App::loadXmlData("first.xml");
 
 	App::printFiguresData();
+
+	App::exportXmlData("copy.xml");
 
 	return 0;
 }

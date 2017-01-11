@@ -42,13 +42,13 @@ public: //DEBUG ONLY!!!!
 	//Toate operatiile vor fi definite ca functii virtuale protejate
 	//Clasele pentru meniu vor fi derivate din App si vor face apel la functiile acestea
 	// 1. Citire Date
-	//    - Din fisier XML
+	//-- OK    - Din fisier XML 
 	//    - Din fisier txt (doar DataSet)
 	// 2. Scriere Date
-	//    - In fisier XML
+	//-- OK   - In fisier XML
 	//    - In fisier TXT sub forma de vectori scilab
 	// 3. Prelucrare date
-	//    - Afisare lista
+	//-- OK    - Afisare lista
 	//    - Arie totala
 	//    - Perimetru total
 	//    - Rasterizare
@@ -57,12 +57,12 @@ public: //DEBUG ONLY!!!!
 	static void loadXmlData(const char * pXmlName);
 	//static void loadVertexData(char * pTxtName);
 
-	//static void exportXmlData(char * pXmlName);
+	static void exportXmlData(char * pXmlName);
 	//static void exportTxtData(char * pTxtName);
 
 	static void printFiguresData();
-	//static void calculateTotalArea();
-	//static void calculateTotalPerimeter();
+	static double calculateTotalArea();
+	static double calculateTotalPerimeter();
 
 	//static void convertToPloygon();
 

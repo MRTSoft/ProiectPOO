@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+    <ConvexPolygon count="4">
+        <Point x="2" y="1"/>
+        <Point x="2" y="2"/>
+        <Point x="1" y="2"/>
+        <Point x="1" y="1"/>
+    </ConvexPolygon>
+    <Ellipse a="2" b="1">
+        <Origin>
+            <Point x="0" y="0"/>
+        </Origin>
+    </Ellipse>
+    <PointSet count="3">
+        <Point x="2" y="2"/>
+        <Point x="1" y="2"/>
+        <Point x="1" y="1"/>
+    </PointSet>
+    <Circle radius="10">
+        <Origin>
+            <Point x="0" y="0"/>
+        </Origin>
+    </Circle>
+    <PointSet count="1">
+        <Point x="5" y="3.5699999999999998"/>
+    </PointSet>
+</Root>

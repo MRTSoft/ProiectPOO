@@ -1,4 +1,5 @@
 #include <string.h>
+#include <fstream>
 
 #include "App.h"
 #include "tinyxml2.h"
@@ -69,6 +70,38 @@ void App::loadXmlData(const char * pXmlName)
 
 }
 
+void App::exportXmlData(char * pXmlName)
+{
+	tinyxml2::XMLDocument xmlDoc;
+	tinyxml2::XMLElement * pRoot = xmlDoc.NewElement("Root");
+	
+	xmlDoc.InsertFirstChild(pRoot);
+	xmlDoc.InsertFirstChild(xmlDoc.NewDeclaration());
+
+	List<Figure *>::listElem * p = App::data.getHead();
+	tinyxml2::XMLNode * xmlElem = 0;
+	tinyxml2::XMLNode * iterator = 0;
+	if (p != nullptr)
+	{
+		xmlElem = p->data->serialize(xmlDoc);
+		pRoot->InsertFirstChild(xmlElem);
+		iterator = xmlElem;
+		p = p->next;
+	}
+	while (p != nullptr)
+	{
+		xmlElem = p->data->serialize(xmlDoc);
+		pRoot->InsertAfterChild(iterator, xmlElem);
+		iterator = xmlElem;
+		p = p->next;
+	}
+	
+	FILE * fp = new FILE;
+	fopen_s(&fp, pXmlName, "w");
+	xmlDoc.SaveFile(fp);
+	fclose(fp);
+}
+
 void App::printFiguresData()
 {
 	List<Figure *>::listElem * p = App::data.getHead();
@@ -77,4 +110,28 @@ void App::printFiguresData()
 		p->data->print(std::cout);
 		p = p->next;
 	}
+}
+
+double App::calculateTotalArea()
+{
+	double tArea = 0;
+	List<Figure *>::listElem * p = App::data.getHead();
+	while (p != nullptr)
+	{
+		tArea += p->data->area();
+		p = p->next;
+	}
+	return tArea;
+}
+
+double App::calculateTotalPerimeter()
+{
+	double tPerim = 0;
+	List<Figure *>::listElem * p = App::data.getHead();
+	while (p != nullptr)
+	{
+		tPerim += p->data->area();
+		p = p->next;
+	}
+	return tPerim;
 }
