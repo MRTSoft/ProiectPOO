@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['rasterize',['rasterize',['../a00106.html#a1a5f23879108673f9588ec9eea027fcf',1,'Circle']]],
-  ['removehead',['removeHead',['../a00130.html#abf3f18858335e6cebb451c80d22edf6f',1,'List']]]
+  ['loadvertexdata',['loadVertexData',['../a00066.html#a48ff2b81288b6b854e0e217c1426b25d',1,'App']]],
+  ['loadxmldata',['loadXmlData',['../a00066.html#a354aeb5f33fcd51c1e5cf710235659a2',1,'App']]]
 ];

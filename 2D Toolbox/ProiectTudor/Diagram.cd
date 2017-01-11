@@ -42,14 +42,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ConvexPolygon">
-    <Position X="10" Y="4" Width="1.5" />
+    <Position X="9.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAQAAAAAAAAAAAEAAAAAIEAAAAAAAAAAAAAAAAAAAAE=</HashCode>
       <FileName>ConvexPolygon.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Ellipse">
-    <Position X="4.75" Y="4" Width="1.5" />
+    <Position X="5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAACAAAAAAEAAIAAIAAAQAAAAAAAAQAAAAAAAAE=</HashCode>
       <FileName>Ellipse.h</FileName>
@@ -63,14 +63,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="IdealFigure">
-    <Position X="2.5" Y="3.25" Width="1.5" />
+    <Position X="2.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAABAAAAAAAIAAoCAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IdealFigure.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PointSet">
-    <Position X="8" Y="3" Width="1.5" />
+    <Position X="7.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BCQAAAAAAAAAAAEAAAAAIAAAAQAQAAgAAAIAAAAIAAE=</HashCode>
       <FileName>PointSet.h</FileName>

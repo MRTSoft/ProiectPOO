@@ -68,15 +68,20 @@ $(function() {
 <div class="title">IdealFigure Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Clasa modeleaza figuri matematice perfecte.  
+ <a href="a00126.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00038_source.html">IdealFigure.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for IdealFigure:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="a00126.png" usemap="#IdealFigure_map" alt=""/>
   <map id="IdealFigure_map" name="IdealFigure_map">
-<area href="a00122.html" alt="Figure" shape="rect" coords="43,0,119,24"/>
+<area href="a00122.html" title="Clasa de baza pentru date. " alt="Figure" shape="rect" coords="43,0,119,24"/>
 <area href="a00106.html" title="Implementeaza un cerc modelat matematic. " alt="Circle" shape="rect" coords="0,112,76,136"/>
-<area href="a00114.html" alt="Ellipse" shape="rect" coords="86,112,162,136"/>
+<area href="a00114.html" title="Clasa implementeaza o elipsa matematica Elipsa este reprezentata prin origine si cele 2 semiaxe ale s..." alt="Ellipse" shape="rect" coords="86,112,162,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -88,15 +93,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a35194b5caa4bec36ad18979cf9b33698"><td class="memItemLeft" align="right" valign="top"><a id="a35194b5caa4bec36ad18979cf9b33698"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>IdealFigure</b> (Point::pointType ox, Point::pointType oy)</td></tr>
 <tr class="separator:a35194b5caa4bec36ad18979cf9b33698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa56fee95f89e38bc678d9d11d689aa1a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00110.html">ConvexPolygon</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00126.html#aa56fee95f89e38bc678d9d11d689aa1a">rasterize</a> (unsigned rezolution)=0</td></tr>
+<tr class="memdesc:aa56fee95f89e38bc678d9d11d689aa1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converteste o figura intr-un poligon regulat.  <a href="#aa56fee95f89e38bc678d9d11d689aa1a">More...</a><br /></td></tr>
+<tr class="separator:aa56fee95f89e38bc678d9d11d689aa1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44d8631276607094ecd9613f597e1550"><td class="memItemLeft" align="right" valign="top"><a id="a44d8631276607094ecd9613f597e1550"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00126.html#a44d8631276607094ecd9613f597e1550">print</a> (std::ostream &amp;g)=0</td></tr>
-<tr class="memdesc:a44d8631276607094ecd9613f597e1550"><td class="mdescLeft">&#160;</td><td class="mdescRight">NOTE Functia nu pastreaza Aria/Perimetrul figurii dar este garantat ca va da tot timpul Un poligon convex inscris in figura data deci cu aria mai mica sau egala O valoare mai mare de 50 va da rezultate destul de bune dpdv vizual. <br /></td></tr>
+<tr class="memdesc:a44d8631276607094ecd9613f597e1550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Afiseaza informatii despre obiect la un stream. <br /></td></tr>
 <tr class="separator:a44d8631276607094ecd9613f597e1550"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa56fee95f89e38bc678d9d11d689aa1a"><td class="memItemLeft" align="right" valign="top"><a id="aa56fee95f89e38bc678d9d11d689aa1a"></a>
-virtual <a class="el" href="a00110.html">ConvexPolygon</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>rasterize</b> (unsigned rezolution)=0</td></tr>
-<tr class="separator:aa56fee95f89e38bc678d9d11d689aa1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a795a3de8992af3fb9cee4a904b31a5"><td class="memItemLeft" align="right" valign="top"><a id="a5a795a3de8992af3fb9cee4a904b31a5"></a>
-virtual tinyxml2::XMLNode *&#160;</td><td class="memItemRight" valign="bottom"><b>serialize</b> (tinyxml2::XMLDocument &amp;xmlDoc)</td></tr>
+<tr class="memitem:a5a795a3de8992af3fb9cee4a904b31a5"><td class="memItemLeft" align="right" valign="top">virtual tinyxml2::XMLNode *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00126.html#a5a795a3de8992af3fb9cee4a904b31a5">serialize</a> (tinyxml2::XMLDocument &amp;xmlDoc)</td></tr>
+<tr class="memdesc:a5a795a3de8992af3fb9cee4a904b31a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creeaza un nod XML care contine informatii despre obiectul curent Nodul XML nu este atasat documentului xml.  <a href="#a5a795a3de8992af3fb9cee4a904b31a5">More...</a><br /></td></tr>
 <tr class="separator:a5a795a3de8992af3fb9cee4a904b31a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_a00122"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00122')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00122.html">Figure</a></td></tr>
 <tr class="memitem:a9860bda67fc9ce8127a812e167c4ce75 inherit pub_methods_a00122"><td class="memItemLeft" align="right" valign="top"><a id="a9860bda67fc9ce8127a812e167c4ce75"></a>
@@ -109,9 +114,82 @@ virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>perimeter</
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a1d3d83b08736c67e93cf685ba5228814"><td class="memItemLeft" align="right" valign="top"><a id="a1d3d83b08736c67e93cf685ba5228814"></a>
-<a class="el" href="a00118.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_origin</b></td></tr>
+<a class="el" href="a00118.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00126.html#a1d3d83b08736c67e93cf685ba5228814">m_origin</a></td></tr>
+<tr class="memdesc:a1d3d83b08736c67e93cf685ba5228814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Originea figurii in sistemul de coordonate. <br /></td></tr>
 <tr class="separator:a1d3d83b08736c67e93cf685ba5228814"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Clasa modeleaza figuri matematice perfecte. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa56fee95f89e38bc678d9d11d689aa1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa56fee95f89e38bc678d9d11d689aa1a">&#9670;&nbsp;</a></span>rasterize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00110.html">ConvexPolygon</a>* IdealFigure::rasterize </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>rezolution</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converteste o figura intr-un poligon regulat. </p>
+<p>NOTE Functia nu pastreaza Aria/Perimetrul figurii dar este garantat ca va da tot timpul Un poligon convex inscris in figura data deci cu aria mai mica sau egala O valoare mai mare de 50 va da rezultate destul de bune dpdv vizual </p>
+
+<p>Implemented in <a class="el" href="a00114.html#a519d5b7e2dc9ff58553a81a31b544175">Ellipse</a>, and <a class="el" href="a00106.html#a1a5f23879108673f9588ec9eea027fcf">Circle</a>.</p>
+
+</div>
+</div>
+<a id="a5a795a3de8992af3fb9cee4a904b31a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a795a3de8992af3fb9cee4a904b31a5">&#9670;&nbsp;</a></span>serialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinyxml2::XMLNode * IdealFigure::serialize </td>
+          <td>(</td>
+          <td class="paramtype">tinyxml2::XMLDocument &amp;&#160;</td>
+          <td class="paramname"><em>xmlDoc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creeaza un nod XML care contine informatii despre obiectul curent Nodul XML nu este atasat documentului xml. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xmlDoc</td><td>- Documentul caruia apartine nodul generat </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00122.html">Figure</a>.</p>
+
+<p>Reimplemented in <a class="el" href="a00114.html#ab6c64b8c54cb74a4552a5f4f487f8d7d">Ellipse</a>, and <a class="el" href="a00106.html#a86fa86f49342a310db5e717c75011487">Circle</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>ProiectTudor/<a class="el" href="a00038_source.html">IdealFigure.h</a></li>
 <li>ProiectTudor/Ellipse.cpp</li>

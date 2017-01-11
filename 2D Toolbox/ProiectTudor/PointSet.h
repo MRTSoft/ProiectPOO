@@ -20,12 +20,17 @@ public:
 	virtual tinyxml2::XMLNode *	serialize(tinyxml2::XMLDocument & xmlDoc);
 	//! @brief Afiseaza informatii despre obiect la un stream
 	void print(std::ostream & g);
-	double area();//Area of a point is 0; Area of a finite set of points is also 0
-	double perimeter();// The perimeter of a set of points is 0
+	//! @brief Area of a point is 0; Area of a finite set of points is also 0
+	double area();
+	//! @brief The perimeter of a set of points is 0
+	double perimeter();
 
 protected:
+	//! @brief Returneaza lista de puncte
 	List<Point>		getPointsList();
+	//! @brief Punctele din multime
 	List<Point> m_points;
+	//! @brief Cardinalul multimii de puncte
 	unsigned	m_nr;
 
 private:

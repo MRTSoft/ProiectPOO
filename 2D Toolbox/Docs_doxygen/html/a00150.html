@@ -69,14 +69,19 @@ $(function() {
 <div class="title">PointSet Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Clasa care reprezinta o multime de puncte.  
+ <a href="a00150.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00059_source.html">PointSet.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PointSet:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="a00150.png" usemap="#PointSet_map" alt=""/>
   <map id="PointSet_map" name="PointSet_map">
-<area href="a00122.html" alt="Figure" shape="rect" coords="0,0,101,24"/>
-<area href="a00110.html" alt="ConvexPolygon" shape="rect" coords="0,112,101,136"/>
+<area href="a00122.html" title="Clasa de baza pentru date. " alt="Figure" shape="rect" coords="0,0,101,24"/>
+<area href="a00110.html" title="Implementeaza un poligon Convex. " alt="ConvexPolygon" shape="rect" coords="0,112,101,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -94,34 +99,81 @@ unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>getPointNr</b> ()
 <tr class="memitem:a05ece163a9323a99a3454a97cb16ebdc"><td class="memItemLeft" align="right" valign="top"><a id="a05ece163a9323a99a3454a97cb16ebdc"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>PointSet</b> (tinyxml2::XMLElement *xmlElem)</td></tr>
 <tr class="separator:a05ece163a9323a99a3454a97cb16ebdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a282360046d7566f50d1ceec49aca0d89"><td class="memItemLeft" align="right" valign="top"><a id="a282360046d7566f50d1ceec49aca0d89"></a>
-virtual tinyxml2::XMLNode *&#160;</td><td class="memItemRight" valign="bottom"><b>serialize</b> (tinyxml2::XMLDocument &amp;xmlDoc)</td></tr>
+<tr class="memitem:a282360046d7566f50d1ceec49aca0d89"><td class="memItemLeft" align="right" valign="top">virtual tinyxml2::XMLNode *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00150.html#a282360046d7566f50d1ceec49aca0d89">serialize</a> (tinyxml2::XMLDocument &amp;xmlDoc)</td></tr>
+<tr class="memdesc:a282360046d7566f50d1ceec49aca0d89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creeaza un nod XML care contine informatii despre obiectul curent Nodul XML nu este atasat documentului xml.  <a href="#a282360046d7566f50d1ceec49aca0d89">More...</a><br /></td></tr>
 <tr class="separator:a282360046d7566f50d1ceec49aca0d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adae0863ec244a15dc9bc5b48f999e81e"><td class="memItemLeft" align="right" valign="top"><a id="adae0863ec244a15dc9bc5b48f999e81e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> (std::ostream &amp;g)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00150.html#adae0863ec244a15dc9bc5b48f999e81e">print</a> (std::ostream &amp;g)</td></tr>
+<tr class="memdesc:adae0863ec244a15dc9bc5b48f999e81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Afiseaza informatii despre obiect la un stream. <br /></td></tr>
 <tr class="separator:adae0863ec244a15dc9bc5b48f999e81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca8092b860a40743fb1c1189e8439764"><td class="memItemLeft" align="right" valign="top"><a id="aca8092b860a40743fb1c1189e8439764"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>area</b> ()</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00150.html#aca8092b860a40743fb1c1189e8439764">area</a> ()</td></tr>
+<tr class="memdesc:aca8092b860a40743fb1c1189e8439764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Area of a point is 0; Area of a finite set of points is also 0. <br /></td></tr>
 <tr class="separator:aca8092b860a40743fb1c1189e8439764"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82b83d662bd5570e6e049e120e1c6bac"><td class="memItemLeft" align="right" valign="top"><a id="a82b83d662bd5570e6e049e120e1c6bac"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>perimeter</b> ()</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00150.html#a82b83d662bd5570e6e049e120e1c6bac">perimeter</a> ()</td></tr>
+<tr class="memdesc:a82b83d662bd5570e6e049e120e1c6bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">The perimeter of a set of points is 0. <br /></td></tr>
 <tr class="separator:a82b83d662bd5570e6e049e120e1c6bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:adef0a6be759d34e965aecb153a3e4b24"><td class="memItemLeft" align="right" valign="top"><a id="adef0a6be759d34e965aecb153a3e4b24"></a>
-<a class="el" href="a00130.html">List</a>&lt; <a class="el" href="a00118.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getPointsList</b> ()</td></tr>
+<a class="el" href="a00130.html">List</a>&lt; <a class="el" href="a00118.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00150.html#adef0a6be759d34e965aecb153a3e4b24">getPointsList</a> ()</td></tr>
+<tr class="memdesc:adef0a6be759d34e965aecb153a3e4b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returneaza lista de puncte. <br /></td></tr>
 <tr class="separator:adef0a6be759d34e965aecb153a3e4b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a535724e3e1ffabf8d26009e555c32b21"><td class="memItemLeft" align="right" valign="top"><a id="a535724e3e1ffabf8d26009e555c32b21"></a>
-<a class="el" href="a00130.html">List</a>&lt; <a class="el" href="a00118.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_points</b></td></tr>
+<a class="el" href="a00130.html">List</a>&lt; <a class="el" href="a00118.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00150.html#a535724e3e1ffabf8d26009e555c32b21">m_points</a></td></tr>
+<tr class="memdesc:a535724e3e1ffabf8d26009e555c32b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Punctele din multime. <br /></td></tr>
 <tr class="separator:a535724e3e1ffabf8d26009e555c32b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2ba098c7108eb3ae954ca7d89a710f3"><td class="memItemLeft" align="right" valign="top"><a id="ae2ba098c7108eb3ae954ca7d89a710f3"></a>
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>m_nr</b></td></tr>
+unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00150.html#ae2ba098c7108eb3ae954ca7d89a710f3">m_nr</a></td></tr>
+<tr class="memdesc:ae2ba098c7108eb3ae954ca7d89a710f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cardinalul multimii de puncte. <br /></td></tr>
 <tr class="separator:ae2ba098c7108eb3ae954ca7d89a710f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Clasa care reprezinta o multime de puncte. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a282360046d7566f50d1ceec49aca0d89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a282360046d7566f50d1ceec49aca0d89">&#9670;&nbsp;</a></span>serialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinyxml2::XMLNode * PointSet::serialize </td>
+          <td>(</td>
+          <td class="paramtype">tinyxml2::XMLDocument &amp;&#160;</td>
+          <td class="paramname"><em>xmlDoc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creeaza un nod XML care contine informatii despre obiectul curent Nodul XML nu este atasat documentului xml. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xmlDoc</td><td>- Documentul caruia apartine nodul generat </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00122.html">Figure</a>.</p>
+
+<p>Reimplemented in <a class="el" href="a00110.html#ab7cfd51933dd7a3bf821056c292ca62c">ConvexPolygon</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>ProiectTudor/<a class="el" href="a00059_source.html">PointSet.h</a></li>
 <li>ProiectTudor/PointSet.cpp</li>
