@@ -1,6 +1,7 @@
 #pragma once
 
 
+//! @brief Implementeaza o lista circulara liniara ce contine un tip variabil de date
 template <class T>
 class List
 {
@@ -17,6 +18,7 @@ public:
 private:
 	/* * * * * * *  Members and methods  * * * * * * */
 public:
+	//! @brief Insereaza o valoare la inceputul listei
 	void insert(T value)
 	{
 		listElem * p = new listElem;
@@ -25,6 +27,7 @@ public:
 		m_head = p;
 	}
 
+	//! @brief Arata daca lista este vida sau nu
 	bool		isEmpty() const
 	{
 		return (m_head == nullptr);
@@ -117,12 +120,14 @@ public:
 	}
 
 protected:
+	//! @brief Intoarce un pointer la capatul listei
 	listElem *	getHead()
 	{
 		return m_head;
 	}
 
 private:
+	//! @brief Primul element al listei
 	listElem *	m_head;
 	
 	/* * * * * * * * * * *    -F.R.I.E.N.D.S.-   * * * * * * * * * * * * */

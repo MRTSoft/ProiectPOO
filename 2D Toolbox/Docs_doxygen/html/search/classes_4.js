@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['figure',['Figure',['../class_figure.html',1,'']]]
+  ['idealfigure',['IdealFigure',['../a00126.html',1,'']]]
 ];

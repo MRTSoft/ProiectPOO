@@ -5,14 +5,16 @@
 
 //Implementam modelul Singleton pentru clasa App
 
-//! Clasa 
+//! @brief Clasa prin intermediul careia se lanseaza in executie aplicatia
+/*! Clasa implementeaza modelul singleton si furnizeaza metode statice pentru toate functionalitatile aplicatiei
+*/
 class App
 {
 public:	
 
 	//! Returneaza instanta clasei App
 
-	/*!
+	/*! @brief Pseudo-constructor
 	* Functia are rol de "pseudo constructor". Daca nu exista nici o instanta a acesteia
 	* Creaza o noua instanta si returneaza o referinta la aceasta si o salveaza in m_singleApp
 	* Daca exista o instanta va returna m_singleApp
@@ -32,12 +34,9 @@ public:
 	{
 		App::m_isInstantiated = false;
 	}
-//protected: // PRODUCTION
-public: //DEBUG ONLY!!!!
-	//TODO MOdificat aceasta sectiune ca protected
+public:
 
-	//static tip_date data
-	//Lista de pointeri Figura
+	//! Lista de pointeri Figura - Aici se vor stoca datele pe care le manipuleaza aplicatia
 	static List<Figure *> data;
 
 
@@ -56,16 +55,36 @@ public: //DEBUG ONLY!!!!
 	//    - Rasterizare
 	//    - Idealizare
 	//TODO Implementare metode
+
+	//! @brief Icarca date dintr-un fisier XML
+	//! @param pXmlName - Numele fisierului
 	static void loadXmlData(const char * pXmlName);
+	
+	//! @brief Incarca date dintr-un fisier in plain-text
+	//! Datele vor fi adaugate ca un singur obiect de tip PointSet
 	static void loadVertexData(const char * pTxtName);
 
+
+	//! @brief Exporta datele aplicatiei in format XML
 	static void exportXmlData(const char * pXmlName);
+
+	//! @brief Exporta datele aplicatiei intr-un format pentru SciLab. 
+	//! In urma executarii scriptului produs se pot vizualiza figurile existente
 	static void exportSciData(const char * pTxtName);
 
+	//! @brief Afiseaza la consola datele din aplicatie
 	static void printFiguresData();
+
+	//! @brief Calculeaza suma totala a ariilor figurilor
+	//! @note PointSet-ul are arie 0
 	static double calculateTotalArea();
+
+	//! @brief Calculeaza suma perimetrelor tuturor figurilor
+	//! @note Point-set-ul are perimetru 0
 	static double calculateTotalPerimeter();
 
+	//! @brief Adauga o figura data ca parametru la lista datelor aplicatiei
+	//! @param fig - Un pointer la o figura
 	static void addFigure(Figure * fig);
 
 	//static void convertToPloygon();
@@ -89,6 +108,7 @@ private:
 	}
 };
 
+//! @brief Importa un XML in aplicatie
 class OperationImportXML : public Operation
 {
 public:
@@ -97,6 +117,8 @@ public:
 private:
 };
 
+
+//! @brief Importa date dintr-un fisier text in aplicatie
 class OperationImportTXT : public Operation
 {
 public:
@@ -105,6 +127,7 @@ public:
 private:
 };
 
+//! @brief Exporta datele aplicatiei in format XML
 class OperationExportXML : public Operation
 {
 public:
@@ -113,6 +136,7 @@ public:
 private:
 };
 
+//! @brief Exporta datele aplicatiei sub forma de script SciLab care poate fi vizualizat
 class OperationExportSCI : public Operation
 {
 public:
@@ -122,6 +146,7 @@ private:
 
 };
 
+//! @brief Afiseaza informatii despre datele din aplicatie la consola
 class OperationDisplayFigures : public Operation
 {
 public:
@@ -130,6 +155,7 @@ public:
 private:
 };
 
+//! @brief Calculeaza suma ariilor
 class OperationCalculateArea : public Operation
 {
 public:
@@ -138,6 +164,7 @@ public:
 private:
 };
 
+//! @brief Calculeaza suma perimetrelor
 class OperationCalculatePerimeter : public Operation
 {
 public:
@@ -146,6 +173,7 @@ public:
 private:
 };
 
+//! @brief Adauga un obiect de tip Cerc la lista de date
 class OperationAddCircle : public Operation
 {
 public:
@@ -153,6 +181,9 @@ public:
 	void ExecuteOperation();
 };
 
+
+//! @brief Adauga un poligon regulat
+//! Poligonul este dat prin numarul de laturi, lungimea laturii si origine
 class OperationAddNgon : public Operation
 {
 public:

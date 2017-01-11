@@ -28,13 +28,6 @@
       <FileName>App.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OperationAddNgon" Collapsed="true">
-    <Position X="3.5" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>App.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="OperationCalculateArea" Collapsed="true">
     <Position X="8" Y="5.25" Width="1.5" />
     <TypeIdentifier>
@@ -81,6 +74,13 @@
     <Position X="21.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OperationAddNgon" Collapsed="true">
+    <Position X="3.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App.h</FileName>
     </TypeIdentifier>
   </Class>

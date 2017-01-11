@@ -1,11 +1,13 @@
 var searchData=
 [
-  ['mempool',['MemPool',['../classtinyxml2_1_1_mem_pool.html',1,'tinyxml2']]],
-  ['mempoolt',['MemPoolT',['../classtinyxml2_1_1_mem_pool_t.html',1,'tinyxml2']]],
-  ['mempoolt_3c_20sizeof_28tinyxml2_3a_3axmlattribute_29_20_3e',['MemPoolT&lt; sizeof(tinyxml2::XMLAttribute) &gt;',['../classtinyxml2_1_1_mem_pool_t.html',1,'tinyxml2']]],
-  ['mempoolt_3c_20sizeof_28tinyxml2_3a_3axmlcomment_29_20_3e',['MemPoolT&lt; sizeof(tinyxml2::XMLComment) &gt;',['../classtinyxml2_1_1_mem_pool_t.html',1,'tinyxml2']]],
-  ['mempoolt_3c_20sizeof_28tinyxml2_3a_3axmlelement_29_20_3e',['MemPoolT&lt; sizeof(tinyxml2::XMLElement) &gt;',['../classtinyxml2_1_1_mem_pool_t.html',1,'tinyxml2']]],
-  ['mempoolt_3c_20sizeof_28tinyxml2_3a_3axmltext_29_20_3e',['MemPoolT&lt; sizeof(tinyxml2::XMLText) &gt;',['../classtinyxml2_1_1_mem_pool_t.html',1,'tinyxml2']]],
-  ['menu',['Menu',['../class_menu.html',1,'']]],
-  ['menuitem',['MenuItem',['../class_menu_item.html',1,'']]]
+  ['operation',['Operation',['../a00142.html',1,'']]],
+  ['operationaddcircle',['OperationAddCircle',['../a00098.html',1,'']]],
+  ['operationaddngon',['OperationAddNgon',['../a00102.html',1,'']]],
+  ['operationcalculatearea',['OperationCalculateArea',['../a00090.html',1,'']]],
+  ['operationcalculateperimeter',['OperationCalculatePerimeter',['../a00094.html',1,'']]],
+  ['operationdisplayfigures',['OperationDisplayFigures',['../a00086.html',1,'']]],
+  ['operationexportsci',['OperationExportSCI',['../a00082.html',1,'']]],
+  ['operationexportxml',['OperationExportXML',['../a00078.html',1,'']]],
+  ['operationimporttxt',['OperationImportTXT',['../a00074.html',1,'']]],
+  ['operationimportxml',['OperationImportXML',['../a00070.html',1,'']]]
 ];

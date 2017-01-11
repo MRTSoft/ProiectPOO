@@ -2,11 +2,13 @@
 
 #pragma once
 
-//Un element de meniu in general. Poate fi atat o operatie cat si un meniu.
+//! Un element de meniu in general. Poate fi atat o operatie cat si un meniu.
 class MenuItem
 {
 private:
+	//! @brief Numele meniului
 	char *m_name;
+	//! @brief Elementul parinte
 	MenuItem *m_parent;
 
 protected:
@@ -29,8 +31,8 @@ public:
 	friend class Menu;
 };
 
-//un element de Menu care efectueaza o operatie. 
-//Reprezinta o frunza in arborele meniului
+//! @brief Un element de Menu care efectueaza o operatie. 
+//! Reprezinta o frunza in arborele meniului
 class Operation : public MenuItem
 {
 protected:
@@ -44,31 +46,34 @@ public:
 	void Execute(void);
 };
 
-//Reprezinta un element meniu care la randul sau este meniu. 
-//Poate fi atat meniul principal cat si un submeniu
+//! @brief Reprezinta un element meniu care la randul sau este meniu. 
+//! Poate fi atat meniul principal cat si un submeniu
 class Menu : public MenuItem
 {
 private:
 	static const int m_nMaxItems = 9;
 	int m_nItems;
 
-	//Meniul este stapan peste memoria fiilor sai.
-	//Astfel, la dealocare va dealoca si memoria fiilor.
+	//! @note Meniul este stapan peste memoria fiilor sai.
+	//! Astfel, la dealocare va dealoca si memoria fiilor.
 	MenuItem **m_items;
 
-	//afiseaza meniul la consola
+	//! @brief afiseaza meniul la consola
 	void Display(void);
 
-	//asteapta apasarea unei taste, si activeaza elementul respectiv 
-	//de meniu returneaza indicele fiului, sau -1 pentru iesire
+	//! @brief asteapta apasarea unei taste, si activeaza elementul respectiv 
+	//! de meniu returneaza indicele fiului, sau -1 pentru iesire
 	int ReadCommand(void);
 
 public:
 	Menu(char *name);
 
-	//va dealoca fii sai, eventual recursiv.
+	//! @brief va dealoca fii sai, eventual recursiv.
 	~Menu();
 
+	//! @brief Adauga un element in meniu.
 	void AddItem(MenuItem *item);
+
+	//! @brief Lanseaza in executie meniul
 	void Execute(void);
 };

@@ -9,11 +9,11 @@
 #endif // !_app_list_defined_
 
 
-//TODO Mutare Globals in App
-//Se asteapta apasarea unei taste
+
+//! @brief Asteapta apasarea unei taste
 void Pause(void);
 
-//sterge ecranul
+//! @brief Sterge ecranul
 void ClearScreen(void);
 
 #endif

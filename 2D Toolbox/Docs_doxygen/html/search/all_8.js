@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hasbom',['HasBOM',['../classtinyxml2_1_1_x_m_l_document.html#a33fc5d159db873a179fa26338adb05bd',1,'tinyxml2::XMLDocument']]]
+  ['menu',['Menu',['../a00146.html',1,'']]],
+  ['menuitem',['MenuItem',['../a00138.html',1,'']]]
 ];
