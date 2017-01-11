@@ -1,13 +1,12 @@
 #pragma once
+#include "List.h"
+#include "Figure.h"
 
 //Implementam modelul Singleton pentru clasa App
 
 class App
 {
-public:
-	//TODO Adaugare date
-	//static tip_date data
-	
+public:	
 
 	//! Returneaza instanta clasei App
 
@@ -32,6 +31,37 @@ public:
 		App::m_isInstantiated = false;
 	}
 protected:
+	//static tip_date data
+	//Lista de pointeri Figura
+	static List<Figure> data;
+
+
+	//Toate operatiile vor fi definite ca functii virtuale protejate
+	//Clasele pentru meniu vor fi derivate din App si vor face apel la functiile acestea
+	// 1. Citire Date
+	//    - Din fisier XML
+	//    - Din fisier txt (doar DataSet)
+	// 2. Scriere Date
+	//    - In fisier XML
+	//    - In fisier TXT sub forma de vectori scilab
+	// 3. Prelucrare date
+	//    - Afisare lista
+	//    - Arie totala
+	//    - Perimetru total
+	//    - Rasterizare
+	//    - Idealizare
+	//TODO Implementare metode
+	static void loadXmlData(const char * pXmlName);
+	//static void loadVertexData(char * pTxtName);
+
+	//static void exportXmlData(char * pXmlName);
+	//static void exportTxtData(char * pTxtName);
+
+//	static void printFiguresData();
+	//static void calculateTotalArea();
+	//static void calculateTotalPerimeter();
+
+	//static void convertToPloygon();
 
 private:
 	//! Reprezinta o instanta a clasei App sau NULL daca nu exista nici o instanta

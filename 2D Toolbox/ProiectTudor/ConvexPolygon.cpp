@@ -91,7 +91,7 @@ void ConvexPolygon::dbg_print_points(std::ostream & g)
 {
 	List<Point>::listElem* pts = m_points.getHead();
 	Point first = pts->data;
-	g << "x = []" << std::endl;
+	g << "x = [];" << std::endl;
 	g << std::setprecision(20);
 	while (pts != nullptr)
 	{
@@ -103,7 +103,7 @@ void ConvexPolygon::dbg_print_points(std::ostream & g)
 	g << "x = [x " << first.x << "];" << std::endl;
 
 	pts = m_points.getHead();
-	g << "y = []" << std::endl;
+	g << "y = [];" << std::endl;
 	//g << std::setprecision(2);
 	while (pts != nullptr)
 	{

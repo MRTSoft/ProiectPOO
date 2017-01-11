@@ -35,3 +35,5 @@ tinyxml2::XMLNode * Circle::serialize(tinyxml2::XMLDocument & xmlDoc)
 	xmlCircle->InsertFirstChild(IdealFigure::serialize(xmlDoc));
 	return xmlCircle;
 }
+
+

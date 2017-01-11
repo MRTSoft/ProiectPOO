@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+    <Point x="1" y="2"/>
+    <Point x="3" y="4"/>
+    <Circle radius="20.5">
+        <Origin>
+            <Point x="0" y="0"/>
+        </Origin>
+    </Circle>
+</Root>

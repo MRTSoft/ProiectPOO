@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
+#include <string.h>
 
 #include "App.h"
 #include "List.h"
@@ -9,11 +10,35 @@
 #include "ConvexPolygon.h"
 #include "tinyxml2.h"
 
+
+void RecursivePrint(tinyxml2::XMLElement * node)
+{
+	if (node != 0)
+	{
+		std::cout << node->Value();
+		bool hasAtributes = (node->FirstAttribute() != 0);
+		std::cout << " -> ";
+		if (hasAtributes)
+			std::cout << node->FirstAttribute()->Value();
+		else
+			std::cout << "No atributes!";
+		std::cout << std::endl;
+		tinyxml2::XMLElement * iterator = node->FirstChildElement();
+		while (iterator)
+		{
+			RecursivePrint(iterator);
+			iterator = iterator->NextSiblingElement();
+		}
+	}
+}
+
 int main()
 {
 	//App* a = App::getInstance();
 	using namespace tinyxml2;
+	using namespace std;
 
+	/*
 	Circle myCirc(0, 0, 20.5);
 	tinyxml2::XMLDocument xmlDoc;
 	XMLNode * pRoot = xmlDoc.NewElement("Root");
@@ -44,5 +69,12 @@ int main()
 
 	//xmlDoc.LoadFile("first.xml");
 	xmlDoc.Print();
+	*/
+	XMLDocument xmlDoc;
+	xmlDoc.LoadFile("first.xml");
+	XMLElement * docRoot = xmlDoc.RootElement();
+	XMLElement * xmlFigure = docRoot->FirstChildElement();
+	RecursivePrint(docRoot);
+	
 	return 0;
 }
